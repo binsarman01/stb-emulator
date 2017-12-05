@@ -1,28 +1,34 @@
-<label>Select app keys
-  <select [(ngModel)]="selectedFBkey">
-    <option *ngFor="let watchappFBkeys of watchappsFBkeys" [ngValue]="watchappFBkeys">
-      {{watchappFBkeys.name}}
-    </option>
-  </select>
-</label>
+<div class="jumbotron">
+    <h1>Facebook app init</h1>
+    <label>Select app keys
+      <select class="form-control" [(ngModel)]="selectedFBkey">
+        <option *ngFor="let watchappFBkeys of watchappsFBkeys" [ngValue]="watchappFBkeys">
+          {{watchappFBkeys.name}}
+        </option>
+      </select>
+    </label>
 
-<div *ngIf="fbConnecting">
-  Loading...
-</div>
-<div *ngIf="selectedFBkey && !fbConnecting">
-  <button (click)="fbConnect(selectedFBkey)">Connect</button>
-  <span>Key: {{selectedFBkey.appID}}, secret: {{selectedFBkey.appSecret}}</span>
-</div>
-<div *ngIf="accessToken">
-  Auth done, access token: {{accessToken}}
+  <div *ngIf="fbConnecting">
+    Loading...
+  </div>
+  <div *ngIf="selectedFBkey && !fbConnecting">
+      <span>Key: {{selectedFBkey.appID}}, secret: {{selectedFBkey.appSecret}}</span>
+      <br/>
+      <button class="btn btn-primary" (click)="fbConnect(selectedFBkey)">Connect</button>
+  </div>
+  <div *ngIf="accessToken">
+    Auth done, access token: {{accessToken}}
+  </div>
 </div>
 
-<div *ngIf="accessToken">
-  <button (click)="fbLogin()">Login with acc</button>
-</div>
-<div *ngIf="userAuthdata">
-  accessToken: {{userAuthdata.accessToken}}
-  userID: {{userAuthdata.userID}}
-  expiresIn: {{userAuthdata.expiresIn}}
-  signedRequest: {{userAuthdata.signedRequest}}
+<div class="jumbotron">
+  <div *ngIf="accessToken">
+    <button class="btn btn-primary" (click)="fbLogin()">Login with acc</button>
+  </div>
+  <div *ngIf="userAuthdata">
+    accessToken: {{userAuthdata.accessToken}}
+    userID: {{userAuthdata.userID}}
+    expiresIn: {{userAuthdata.expiresIn}}
+    signedRequest: {{userAuthdata.signedRequest}}
+  </div>
 </div>
