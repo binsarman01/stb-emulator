@@ -1,0 +1,28 @@
+<label>Select app keys
+  <select [(ngModel)]="selectedFBkey">
+    <option *ngFor="let watchappFBkeys of watchappsFBkeys" [ngValue]="watchappFBkeys">
+      {{watchappFBkeys.name}}
+    </option>
+  </select>
+</label>
+
+<div *ngIf="fbConnecting">
+  Loading...
+</div>
+<div *ngIf="selectedFBkey && !fbConnecting">
+  <button (click)="fbConnect(selectedFBkey)">Connect</button>
+  <span>Key: {{selectedFBkey.appID}}, secret: {{selectedFBkey.appSecret}}</span>
+</div>
+<div *ngIf="accessToken">
+  Auth done, access token: {{accessToken}}
+</div>
+
+<div *ngIf="accessToken">
+  <button (click)="fbLogin()">Login with acc</button>
+</div>
+<div *ngIf="userAuthdata">
+  accessToken: {{userAuthdata.accessToken}}
+  userID: {{userAuthdata.userID}}
+  expiresIn: {{userAuthdata.expiresIn}}
+  signedRequest: {{userAuthdata.signedRequest}}
+</div>
