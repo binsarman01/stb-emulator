@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    padding: 3rem;
+    background-image: url('assets/images/comigo.png');
+    background-size: 5%;
+}
+
+pre{
+    margin: 0;
+}
+
+.jumbotron{
+    border-top: 4px solid #ccc;
+}
+
+.jumbotron .row {
+    margin-top: 20px;
+}
+
+.longInput .col-9{
+    overflow: auto;
+}
+
+.col-9 .alert{
+    padding: .375rem .75rem;
+    display: inline-block;
+}
+
+.row .textMid{
+    position:relative;
+    display: block;
+    top:50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}

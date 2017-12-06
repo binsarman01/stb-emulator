@@ -1,34 +1,69 @@
-<div class="jumbotron">
+<div id="facebook" class="jumbotron">
     <h1>Facebook app init</h1>
-    <label>Select app keys
-      <select class="form-control" [(ngModel)]="selectedFBkey">
-        <option *ngFor="let watchappFBkeys of watchappsFBkeys" [ngValue]="watchappFBkeys">
-          {{watchappFBkeys.name}}
-        </option>
-      </select>
-    </label>
+    
+    <div class="row">
+        <div class="col-3">
+          <label for="appKeySelect" class="textMid">
+            Select app keys
+        </label>
+        </div>
+        <div class="col-9">
+            <select id="appKeySelect" class="form-control" [(ngModel)]="selectedFBkey">
+                <option *ngFor="let watchappFBkeys of watchappsFBkeys" [ngValue]="watchappFBkeys">
+                  {{watchappFBkeys.name}}
+                </option>
+              </select>    
+        </div>
+    </div>
+    
+    <div *ngIf="selectedFBkey && !fbConnecting" class="row">
+      <div class="col-3">
+          <button class="btn btn-primary" (click)="fbConnect(selectedFBkey)">Connect</button>
+      </div>
+      <div class="col-9">
+          <span class="textMid">Key: {{selectedFBkey.appID}}, secret: {{selectedFBkey.appSecret}}</span>
+      </div>
+    </div>
 
-  <div *ngIf="fbConnecting">
-    Loading...
-  </div>
-  <div *ngIf="selectedFBkey && !fbConnecting">
-      <span>Key: {{selectedFBkey.appID}}, secret: {{selectedFBkey.appSecret}}</span>
-      <br/>
-      <button class="btn btn-primary" (click)="fbConnect(selectedFBkey)">Connect</button>
-  </div>
-  <div *ngIf="accessToken">
-    Auth done, access token: {{accessToken}}
-  </div>
+    <div *ngIf="accessToken" class="row">
+      <div class="col-3">Done! Access token:</div>
+      <div class="col-9">{{accessToken}}</div>
+    </div>
+
+    <div *ngIf="fbConnecting">
+        Loading...
+    </div>
+
 </div>
 
-<div class="jumbotron">
-  <div *ngIf="accessToken">
-    <button class="btn btn-primary" (click)="fbLogin()">Login with acc</button>
-  </div>
-  <div *ngIf="userAuthdata">
-    accessToken: {{userAuthdata.accessToken}}
-    userID: {{userAuthdata.userID}}
-    expiresIn: {{userAuthdata.expiresIn}}
-    signedRequest: {{userAuthdata.signedRequest}}
-  </div>
+<div class="jumbotron" *ngIf="accessToken">
+    <h1>Facebook login</h1>
+
+    <div class="row">
+      <div class="col-12" *ngIf="!userAuthdata">
+        <button class="btn btn-primary" (click)="fbLogin()">Login with acc</button>
+      </div>
+      <div class="col-12" *ngIf="userAuthdata">
+          <button class="btn btn-primary" (click)="fbLogout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="row-group longInput">
+        <div class="row" *ngIf="userAuthdata">
+            <div class="col-3">accessToken</div>
+            <div class="col-9">{{userAuthdata.accessToken}}</div>
+        </div>
+        <div class="row" *ngIf="userAuthdata">
+            <div class="col-3">userID</div>
+            <div class="col-9">{{userAuthdata.userID}}</div>
+        </div>
+        <div class="row" *ngIf="userAuthdata">
+            <div class="col-3">expiresIn</div>
+            <div class="col-9">{{userAuthdata.expiresIn}}</div>
+        </div>
+        <div class="row" *ngIf="userAuthdata">
+            <div class="col-3">signedRequest</div>
+            <div class="col-9">{{userAuthdata.signedRequest}}</div>
+        </div>
+    </div>
 </div>

@@ -1,24 +1,35 @@
 <div class="container">
     <div class="row">
         <nav class="col-3 sidebar">
-            <ul class="nav nav-pills flex-column">
+            <ul class="nav flex-column">
                 <li class="nav-item">
-                <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+                        <a class="nav-link disabled" href="#stbconfig">STB config</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Reports</a>
+                    <a class="nav-link disabled" href="#Comigouser">Comigo user</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Analytics</a>
+                    <a class="nav-link" href="#facebook">Facebook</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Export</a>
+                    <a class="nav-link" href="#socialite">Socialite</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link disabled" href="#SDK select">SDK select</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#params">Params</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#watchapp">Watchapp</a>
                 </li>
             </ul>
         </nav>
         <div class="col-9">
-            <app-facebook-connect></app-facebook-connect>
-            <h2>Socialite</h2>
+            <app-facebook-connect (login)="authData=$event" [data]="authData"></app-facebook-connect>
+            <app-socialite [data]="authData"></app-socialite>
+            <app-watchapp-params [data]="params"></app-watchapp-params>
+            <app-watchapp></app-watchapp>
         </div>
     </div>
 </div>

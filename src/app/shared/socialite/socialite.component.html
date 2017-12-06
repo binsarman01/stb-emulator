@@ -1,0 +1,23 @@
+<div id="socialite" class="jumbotron">
+    <h1>Socialite</h1>
+    
+  <div class="row-group">
+    <div class="row">
+        <div class="col-3">
+            Status:
+        </div>
+        <div class="col-9">
+            Unknown!
+          </div>
+      </div>
+    <div class="row">
+      <div class="col-3">
+        <button [disabled]="!authData" class="btn btn-primary">Login</button>
+      </div>
+      <div class="col-9">
+        <span *ngIf="authData" class="textMid">User ID: {{authData.userID}}</span>
+        <span *ngIf="!authData" class="alert alert-warning">You must be logged into Facebook acc</span>
+      </div>
+    </div>
+  </div>
+</div>

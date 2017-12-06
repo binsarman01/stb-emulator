@@ -31,6 +31,14 @@ export class FacebookConnectService {
   fbLogin(accessToken): Observable<LoginResponse>{
     return Observable.fromPromise(this._facebookService.login());
   }
+
+  fbLoginStatus(){
+    return Observable.fromPromise(this._facebookService.getLoginStatus());
+  }
+
+  fbLogout(){
+    return Observable.fromPromise(this._facebookService.logout());
+  }
 }
 
 export interface IFacebookAppKey {
@@ -48,4 +56,8 @@ export interface IFacebookAuthResponse{
   user_code: string;
   verification_uri: string;
   expires_in: number;
+}
+
+export enum EFacebookStatus{
+  // Connected = "connected"
 }

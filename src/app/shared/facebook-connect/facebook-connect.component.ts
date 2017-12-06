@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FacebookConnectService, IFacebookAppKey } from './facebook-connect.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import 'rxjs/add/operator/finally';
+import { FacebookConnectService, IFacebookAppKey, EFacebookStatus } from './facebook-connect.service';
+
+import { AuthResponse } from 'ngx-facebook';
 
 @Component({
   selector: 'app-facebook-connect',
@@ -12,24 +14,37 @@ export class FacebookConnectComponent {
   constructor(private _facebookConnectService: FacebookConnectService) { }
 
   watchappsFBkeys: IFacebookAppKey[] = [{
-    name: 'whos_on',
-    appID: '1500811360170218',
-    appSecret: 'ab05a01402674a542837ca7670b37112'
-  },{
-    name: 'Comigo-STB-emulator',
-    appID: '1994606537419683',
-    appSecret: '7d9757cda3be47564f077ac330f3190a'
-
+      name: 'Comigo-STB-emulator',
+      appID: '1994606537419683',
+      appSecret: '7d9757cda3be47564f077ac330f3190a'
+  
+    },{
+      name: 'Whos on',
+      appID: '1500811360170218',
+      appSecret: 'ab05a01402674a542837ca7670b37112'
   }];
+
   fbConnecting: boolean = false;
-  selectedFBkey: IFacebookAppKey;
+  selectedFBkey: IFacebookAppKey = this.watchappsFBkeys[0];
   accessToken: string;
-  userAuthdata;
+  @Input('data') userAuthdata: AuthResponse;
+  @Output('login') loginEvent = new EventEmitter<AuthResponse>();
 
   fbConnect(keys: IFacebookAppKey){
     this.fbConnecting = true;
     this._facebookConnectService.fbAppInit(keys).subscribe((fbResponse)=>{
       this.accessToken = fbResponse.access_token;
+
+      this._facebookConnectService.fbLoginStatus().subscribe((loginStatus)=>{
+        if(loginStatus.status == "connected"){
+          this.userAuthdata = loginStatus.authResponse;
+          this.loginEvent.emit(this.userAuthdata);
+        }else{
+          this.userAuthdata = null;
+          this.loginEvent.emit(null);
+        }
+      })
+
     }, (error)=>{
       console.log(error);
     },()=>{
@@ -39,9 +54,16 @@ export class FacebookConnectComponent {
 
   fbLogin(){
     this._facebookConnectService.fbLogin(this.accessToken).subscribe((fbResponse)=>{
-      console.log(fbResponse);
       this.userAuthdata = fbResponse.authResponse;
+      this.loginEvent.emit(this.userAuthdata);
     });
+  }
+
+  fbLogout(){
+    this._facebookConnectService.fbLogout().subscribe((res)=>{
+      this.userAuthdata = null;
+      this.loginEvent.emit(null);
+    })
   }
 
 }
