@@ -6,6 +6,9 @@
     right: 20px;
     background-color: #eee;
     border: 1px solid #000;
+    background-image: url('http://www.screengeek.net/wp-content/uploads/2017/05/avengers-deaths.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .iframeModal .iframe-close{
@@ -14,4 +17,5 @@
     right: 10px;
     font-size: 32px;
     cursor: pointer;
+    color: #fff;
 }

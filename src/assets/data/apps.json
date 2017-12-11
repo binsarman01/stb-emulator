@@ -1,10 +1,15 @@
 [{
     "name": "Whos on - Staging",
-    "url": "https://en.wikipedia.org/wiki/Main_Page/",
+    "url": "http://s3-eu-west-1.amazonaws.com/comigo-staging-eu/watchapps_dev/v2/whos_on_rextmp/",
     "index": "index.html",
     "debug_mode": "debug_mode/debug.html"
 },{
     "name": "Sports feed - staging",
     "url": "https://en.wikipedia.org/wiki/Main_Page/",
     "index": "index.html"
+},{
+    "name": "Whos on - Alexandr Ivanov local",
+    "url": "http://watchapp.all/who-is-watching-what/",
+    "index": "src/index.html",
+    "debug_mode": "debug_mode/debug.html"
 }]

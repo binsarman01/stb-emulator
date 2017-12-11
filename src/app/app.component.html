@@ -21,15 +21,15 @@
                     <a class="nav-link" href="#params">Params</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#watchapp">Watchapp</a>
+                    <a class="nav-link" href="#watchappFrame">Watchapp</a>
                 </li>
             </ul>
         </nav>
         <div class="col-9">
             <app-facebook-connect (login)="authData=$event" [data]="authData"></app-facebook-connect>
             <app-socialite [data]="authData"></app-socialite>
-            <app-watchapp-params [data]="params"></app-watchapp-params>
-            <app-watchapp></app-watchapp>
+            <app-watchapp-params (update)="params = $event" [data]="params"></app-watchapp-params>
+            <app-watchapp [params]="params"></app-watchapp>
         </div>
     </div>
 </div>

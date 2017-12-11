@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { WatchappService, IWatchapp} from './watchapp.service';
+import { ApiEmulatorService } from 'app/shared/services/API-emulator/api-emulator.service';
 
 @Component({
   selector: 'app-watchapp',
@@ -7,14 +8,15 @@ import { WatchappService, IWatchapp} from './watchapp.service';
   styleUrls: ['./watchapp.component.css']
 })
 export class WatchappComponent implements OnInit {
-
+  iframeModal: boolean;
   watchapps: IWatchapp[];
   selectedWatchapp: IWatchapp = null;
   customUrl: string = 'http://';
   debugMode: boolean;
-  params: string = '?test_params_string=true&in_development=true';
+  @Input()params: string;
 
-  constructor(private _watchappService: WatchappService) { 
+  constructor(private _watchappService: WatchappService, 
+    private _apiEmulatorService: ApiEmulatorService) { 
     this._watchappService.getApps().subscribe((watchapps)=>{
       this.watchapps = watchapps;
     })
@@ -36,6 +38,11 @@ export class WatchappComponent implements OnInit {
       result = customUrl + params;
     }
     return result;
+  }
+
+  updateFrame(event: Event){
+    event.srcElement['focus']();
+    this._apiEmulatorService.frame = event.srcElement;
   }
 
   ngOnInit() {
