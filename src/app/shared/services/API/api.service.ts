@@ -15,16 +15,18 @@ export class ApiService {
 
   fbLogin(authData: AuthResponse):Observable<IFacebookResponse>{
     
-    let url = this.selectedApiUrl.url + 
-               ApiMethods.FacebookLogin + 
-               (this.selectedApiKey? '?'+ ApiParams.ApiKey +'=' + this.selectedApiKey.key : '');
+    let url: string = this.selectedApiUrl.url + 
+                          ApiMethods.FacebookLogin + 
+                          (this.selectedApiKey? '?'+ ApiParams.ApiKey +'=' + this.selectedApiKey.key : '');
 
-    return this._http.post(url, {
-      "fb_id": authData.userID,
-      "fb_access_token": authData.accessToken,
-      "push_token": '',
-      "push_token_provider": ["comigo"],
-    }).map((data)=>data.json());
+    let fbLoginRequest: IFacebookLoginRequest = {
+      fb_id: authData.userID,
+      fb_access_token: authData.accessToken,
+      push_token: '',
+      push_token_provider: ["comigo"]
+    };
+
+    return this._http.post(url, fbLoginRequest).map((data)=>data.json());
   }
 }
 
@@ -44,6 +46,13 @@ export namespace ApiMethods {
 
 export namespace ApiParams {
   export const ApiKey = 'api_key';
+}
+
+export interface IFacebookLoginRequest{
+  fb_id: string;
+  fb_access_token: string;
+  push_token: string;
+  push_token_provider: string[];
 }
 
 export interface IFacebookResponse{
