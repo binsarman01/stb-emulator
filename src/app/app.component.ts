@@ -13,6 +13,8 @@ export class AppComponent implements OnInit{
   authData: AuthResponse;
   params: string = '?';
   frame: Element;
+  apiUrl;
+  apiKey;
 
   constructor (private _appEmulator: ApiEmulatorService){
   }

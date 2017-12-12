@@ -19,6 +19,10 @@ export class FacebookConnectComponent {
       appSecret: '7d9757cda3be47564f077ac330f3190a'
   
     },{
+      name: 'Comigo-STB localhost 4200',
+      appID: '305627953283149',
+      appSecret: '85bdd54874f5522b42dedd9a496bb125'
+    },{
       name: 'Whos on',
       appID: '1500811360170218',
       appSecret: 'ab05a01402674a542837ca7670b37112'

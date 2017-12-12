@@ -1,5 +1,6 @@
 <div class="container">
     <div class="row">
+        
         <nav class="col-3 sidebar">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -25,11 +26,14 @@
                 </li>
             </ul>
         </nav>
+
         <div class="col-9">
+            <app-api-select></app-api-select>
             <app-facebook-connect (login)="authData=$event" [data]="authData"></app-facebook-connect>
             <app-socialite [data]="authData"></app-socialite>
             <app-watchapp-params (update)="params = $event" [data]="params"></app-watchapp-params>
             <app-watchapp [params]="params"></app-watchapp>
         </div>
+        
     </div>
 </div>

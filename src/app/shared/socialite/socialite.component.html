@@ -1,18 +1,19 @@
 <div id="socialite" class="jumbotron">
     <h1>Socialite</h1>
     
-  <div class="row-group">
+  <div class="row-group longInput">
     <div class="row">
         <div class="col-3">
             Status:
         </div>
         <div class="col-9">
-            Unknown!
-          </div>
+            <span *ngIf="authToken">Logged in: {{authToken.access_token}}</span>
+            <span *ngIf="!authToken">Unknown</span>
+        </div>
       </div>
     <div class="row">
       <div class="col-3">
-        <button [disabled]="!authData" class="btn btn-primary">Login</button>
+        <button [disabled]="!authData || authToken" (click)="socialite(authData)" class="btn btn-primary">Login</button>
       </div>
       <div class="col-9">
         <span *ngIf="authData" class="textMid">User ID: {{authData.userID}}</span>

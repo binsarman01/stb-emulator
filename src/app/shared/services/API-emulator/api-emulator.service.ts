@@ -53,5 +53,5 @@ export interface ICall{
 export enum ICallArgs{
   Url = 0,
   Params = 1,
-  Type = 2
+  Method = 2
 }

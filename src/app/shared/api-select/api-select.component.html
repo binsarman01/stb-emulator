@@ -1,0 +1,57 @@
+<div id="api" class="jumbotron">
+  <h1>Api</h1>
+    
+  <div class="row-group">
+    <div class="row">
+        <div class="col-3">
+            <label class="textMid" for="apiUrlSelect">
+                API url:
+            </label>
+        </div>
+        <div class="col-9">
+          <select id="apiUrlSelect" 
+          class="form-control" 
+          (change)="apiUrlUpdate(selectedApiUrl)"
+          [(ngModel)]="selectedApiUrl">
+            <option *ngFor="let apiUrl of apiUrls" [ngValue]="apiUrl">
+              {{apiUrl.name}}
+            </option>
+          </select>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+          <label class="textMid" for="apiKeySelect">
+              Access key:
+          </label>
+      </div>
+      <div class="col-9">
+        <select id="apiKeySelect" 
+        class="form-control" 
+        (change)="apiKeyUpdate(selectedApiKey)"
+        [(ngModel)]="selectedApiKey">
+          <option *ngFor="let apiKey of apiKeys" [ngValue]="apiKey">
+            {{apiKey.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+          <label class="textMid" for="dummyDataSelect">
+              Dummy data:
+          </label>
+      </div>
+      <div class="col-9">
+        <select disabled id="dummyDataSelect" class="form-control">
+          <option>
+            Under construction
+          </option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -11,6 +11,8 @@ import { SocialiteComponent } from './socialite/socialite.component';
 import { WatchappParamsComponent } from './watchapp-params/watchapp-params.component';
 import { WatchappComponent } from './watchapp/watchapp.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { ApiSelectComponent } from './api-select/api-select.component';
+import { ApiService } from 'app/shared/services/API/api.service';
 
 @NgModule({
   imports: [
@@ -22,20 +24,23 @@ import { SafePipe } from './pipes/safe.pipe';
     WatchappService,
     HelperService,
     ApiEmulatorService,
-    ApiEmulatorMethodsService
+    ApiEmulatorMethodsService,
+    ApiService
   ],
   declarations: [
     FacebookConnectComponent,
     SocialiteComponent,
     WatchappParamsComponent,
     WatchappComponent,
-    SafePipe
+    SafePipe,
+    ApiSelectComponent
   ],
   exports: [
     FacebookConnectComponent,
     SocialiteComponent,
     WatchappParamsComponent,
-    WatchappComponent
+    WatchappComponent,
+    ApiSelectComponent
   ]
 })
 export class SharedModule { }
