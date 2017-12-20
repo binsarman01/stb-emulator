@@ -25,10 +25,10 @@ export class ApiEmulatorMethodsService {
     })
   }
 
-  RexConfigWrapper(messsage: ICall){
+  RexConfigWrapper(message: ICall){
     switch (true) {
       default:
-        this.sendDummy(messsage);
+        this.sendDummy(message);
         break;
     }
   }

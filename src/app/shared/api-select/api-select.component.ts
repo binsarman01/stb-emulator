@@ -9,13 +9,13 @@ import { ApiService, IAPIAccessKeys, IAPIUrl } from 'app/shared/services/API/api
 export class ApiSelectComponent {
 
   apiKeys: IAPIAccessKeys[] = [{
-    name: 'cells',
+    name: 'cells-black',
     key: 'c92ad111-2cac-43f6-93c2-cc25276f7b2a'
   }];
 
   apiUrls: IAPIUrl[] = [{
     name: 'dev-eimind',
-    url: 'https://dev.eimind.comigo.com/'
+    url: 'https://dev.eimind.comigo.com/social/'
   }];
 
   selectedApiUrl: IAPIUrl = this.apiUrls[0];

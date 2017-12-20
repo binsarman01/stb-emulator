@@ -557,7 +557,10 @@
 
     "/users/me/status":{
         "GET": {
-            "data": []
+            "data": {
+                "contentType": "epg",
+                "contentId": "1111111111111"
+            }
         },
         "POST": {
             "data": []
@@ -714,6 +717,108 @@
                    "view_state_idx":0
                 }
              ]
+        }
+    },
+
+    "/friends" : {
+        "GET": {
+            "data": [  
+                {  
+                   	"content_id":"332",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"12",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"3345",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"14",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"test_content_id",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"test_content_id",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"test_content_id",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"test_content_id",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                },
+                {  
+                    "content_id":"test_content_id",
+                    "content_source":"epg",
+                    "content_updated_at":"2017-12-17T23:02:52.457Z",
+                    "customer_id":"comigo",
+                    "profile_picture":"https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=8a3549a50c99193e342e22c66b375815&oe=5AC4632F",
+                    "user_id":"d77c0679-11fb-479e-9c7d-cb95a298c9b9",
+                    "status":"login",
+                    "name":"Dima Denisoff"
+                }
+             ]
+        }
+    },
+    "/send_invitation":{
+        "POST": {
+            "data": []
         }
     }
 }]

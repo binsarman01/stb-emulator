@@ -11,14 +11,52 @@
             <span *ngIf="!authToken">Unknown</span>
         </div>
       </div>
-    <div class="row">
-      <div class="col-3">
-        <button [disabled]="!authData || authToken" (click)="socialite(authData)" class="btn btn-primary">Login</button>
+    
+      <div class="row">
+        <div class="col-3">
+          <button [disabled]="!authData || authToken" (click)="socialite(authData)" class="btn btn-primary">Login</button>
+        </div>
+        <div class="col-9">
+          <span *ngIf="authData" class="textMid">User ID: {{authData.userID}}</span>
+          <span *ngIf="!authData" class="alert alert-warning">You must be logged into Facebook acc</span>
+        </div>
       </div>
-      <div class="col-9">
-        <span *ngIf="authData" class="textMid">User ID: {{authData.userID}}</span>
-        <span *ngIf="!authData" class="alert alert-warning">You must be logged into Facebook acc</span>
+
+      <div class="row" *ngIf="authToken">
+        <div class="col-3">
+          <button [disabled]="!contentId || !contentType"
+          (click)="setViewState(contentId, contentType, authToken)" 
+          class="btn btn-primary">Set view state</button>
+        </div>
+        <div class="col-9">
+            <div class="row no-margin">
+                <div class="col-6">
+                    <input id="content_id" 
+                      placeholder="Content id" 
+                      type="text" 
+                      class="form-control" 
+                      [(ngModel)]="contentId">
+                </div>
+                <div class="col-6">
+                    <select class="form-control" [(ngModel)]="contentType">
+                      <option [value]="CTenum.EPG" selected>{{CTenum.EPG}}</option>
+                      <option [value]="CTenum.VOD">{{CTenum.VOD}}</option>
+                    </select>
+                </div>
+            </div>  
+        </div>
       </div>
-    </div>
+
+      <div class="row" *ngIf="authToken">
+          <div class="col-3">
+            <button (click)="unsetViewState(authToken)" class="btn btn-primary">Unset view state</button>
+          </div>
+          <div class="col-9">
+            <span class="textMid">
+                Remove view state
+            </span>
+          </div>
+        </div>
+
   </div>
 </div>
