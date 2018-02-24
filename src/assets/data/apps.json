@@ -4,6 +4,10 @@
     "index": "index.html",
     "debug_mode": "debug_mode/debug.html"
 },{
+    "name": "Whos - Socialite - stg",
+    "url": "http://s3-eu-west-1.amazonaws.com/comigo-staging-eu/watchapps_dev/v2/whos_on_socialite/",
+    "index": "index.html"
+},{
     "name": "Sports feed - staging",
     "url": "https://en.wikipedia.org/wiki/Main_Page/",
     "index": "index.html"
